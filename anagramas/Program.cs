@@ -8,10 +8,10 @@
 
 //Desenvolva uma algoritmo que determina se duas palavras são anagramas utilizando apenas funcinalidades basicas da linguagem como loops e estrutura de dados como listas, objetos, diagramas, etc...
 
-Console.WriteLine("Escrava a sua primeira palavra anagrama: ");
+Console.WriteLine("Escreva a sua primeira palavra anagrama: ");
 string ? palavra1 = Console.ReadLine();
 
-Console.WriteLine("Escrava a sua segunda palavra anagrama: ");
+Console.WriteLine("Escreva a sua segunda palavra anagrama: ");
 string ? palavra2 = Console.ReadLine();
 
 string[] a = new string[palavra1.Length];
@@ -35,17 +35,23 @@ try
 
         for (int i = 0; i < a.Length; i++)
         {
-            if (a[i] == b[i])
-            {
-                c[i] = b[i];
+            for(int j = 0; j < a.Length; j++)
+            { 
+                if (a[i] == b[j])
+                {
+                    c[i] = b[j];
+                }
             }
         }
 
-        for (int i = 0; i < c.Length; i++)
+        if (a.SequenceEqual(c))
         {
-            Console.WriteLine(c[i]);
+            Console.WriteLine("É um anagrama");
         }
-    
+        else
+        {
+            Console.WriteLine("não é um anagrama");
+        }
     }
     else 
     {
