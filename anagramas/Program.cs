@@ -21,7 +21,21 @@ string[] c = new string[palavra2.Length];
 
 try 
 {
-    if (a.Length == b.Length)
+    while (true)
+    {
+        if (string.IsNullOrEmpty(palavra1) || string.IsNullOrEmpty(palavra2))
+        {
+            Console.WriteLine("======== Palavras não foram colocadas corretamente, por favor insira novamente ========\n");
+
+            Console.WriteLine("Escreva a sua primeira palavra anagrama: ");
+            palavra1 = Console.ReadLine();
+
+            Console.WriteLine("Escreva a sua segunda palavra anagrama: ");
+            palavra2 = Console.ReadLine();
+        }
+        else break;
+    }
+    if(a.Length == b.Length)
     {
         for (int i = 0; i < palavra1.Length; i++)
         {
@@ -35,8 +49,8 @@ try
 
         for (int i = 0; i < a.Length; i++)
         {
-            for(int j = 0; j < a.Length; j++)
-            { 
+            for (int j = 0; j < a.Length; j++)
+            {
                 if (a[i] == b[j])
                 {
                     c[i] = b[j];
@@ -53,7 +67,7 @@ try
             Console.WriteLine("não é um anagrama");
         }
     }
-    else 
+    else
     {
         throw new Exception("Ambas palavras não possuem a mesma quantia de letras");
     }
