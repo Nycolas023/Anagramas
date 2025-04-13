@@ -8,34 +8,31 @@
 
 //Desenvolva uma algoritmo que determina se duas palavras são anagramas utilizando apenas funcinalidades basicas da linguagem como loops e estrutura de dados como listas, objetos, diagramas, etc...
 
-Console.WriteLine("Escreva a sua primeira palavra anagrama: ");
-string ? palavra1 = Console.ReadLine();
-
-Console.WriteLine("Escreva a sua segunda palavra anagrama: ");
-string ? palavra2 = Console.ReadLine();
-
-string[] a = new string[palavra1.Length];
-string[] b = new string[palavra2.Length];
-string[] c = new string[palavra2.Length];
-
-
-try 
+try
 {
-    while (true)
+    string palavra1 = "";
+    string palavra2 = "";
+    
+    while (validaInput(palavra1, palavra2))
     {
-        if (string.IsNullOrEmpty(palavra1) || string.IsNullOrEmpty(palavra2))
+        Console.WriteLine("Escreva a sua primeira palavra anagrama: ");
+        palavra1 = Console.ReadLine();
+
+        Console.WriteLine("Escreva a sua segunda palavra anagrama: ");
+        palavra2 = Console.ReadLine();
+
+        if (validaInput(palavra1, palavra2))
         {
-            Console.WriteLine("======== Palavras não foram colocadas corretamente, por favor insira novamente ========\n");
-
-            Console.WriteLine("Escreva a sua primeira palavra anagrama: ");
-            palavra1 = Console.ReadLine();
-
-            Console.WriteLine("Escreva a sua segunda palavra anagrama: ");
-            palavra2 = Console.ReadLine();
+            Console.WriteLine("============= Por favor insira as palavras novamente =============\n");
         }
-        else break;
+
     }
-    if(a.Length == b.Length)
+    
+    string[] a = new string[palavra1.Length];
+    string[] b = new string[palavra2.Length];
+    string[] c = new string[palavra2.Length];
+
+    if (a.Length == b.Length)
     {
         for (int i = 0; i < palavra1.Length; i++)
         {
@@ -75,4 +72,13 @@ try
 catch (Exception ex)
 {
     Console.WriteLine("\n" + ex.ToString());
+}
+
+
+bool validaInput(string ? input1, string ? input2)
+{
+    if(string.IsNullOrEmpty(input1) && input1 is string || string.IsNullOrEmpty(input2) && input2 is string)
+        return true;
+    else
+        return false;
 }
